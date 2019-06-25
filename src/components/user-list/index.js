@@ -28,6 +28,7 @@ class UserList extends Component {
           users.length
             ?
             users.map(user => <UserCard
+              key={user.login}
               user={user}
             />)
             : null

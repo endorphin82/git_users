@@ -24,11 +24,11 @@ export const getUsers = () => {
 }
 
 export const loadInfoUserByLogin = login => dispatch => {
-    dispatch({
-      type: LOAD_INFO_USER_BY_LOGIN,
-      payload: login,
-      callAPI: `https://api.github.com/users/{login}`
-    });
+  dispatch({
+    type: LOAD_INFO_USER_BY_LOGIN,
+    payload: login,
+    callAPI: `https://api.github.com/users/{login}`
+  });
 }
 
 // export const getStarsByLogin = (login) => {
