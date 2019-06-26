@@ -24,11 +24,28 @@ export const getUsers = () => {
 }
 
 export const loadInfoUserByLogin = login => dispatch => {
-  dispatch({
-    type: LOAD_INFO_USER_BY_LOGIN,
-    payload: login,
-    callAPI: `https://api.github.com/users/{login}`
-  });
+  console.log('--');
+  // const user = login.replace(/\s/g, "")
+  // return dispatch => {
+  //   dispatch({
+  //     type: LOAD_INFO_USER_BY_LOGIN + START
+  //   });
+    dispatch({
+      type: LOAD_INFO_USER_BY_LOGIN,
+      payload: login,
+      callAPI: `https://api.github.com/users/${login}`
+    })
+    // return axios.get(`https://api.github.com/users/{login}`)
+    //   .then(response => response.data)
+    //   .then(users => dispatch({
+    //     type: LOAD_INFO_USER_BY_LOGIN + SUCCESS,
+    //     payload: {user}
+    //   }))
+    //   .catch(errors => dispatch({
+    //     type: LOAD_INFO_USER_BY_LOGIN + FAILURE,
+    //     payload: {errors}
+    //   }))
+  // }
 }
 
 // export const getStarsByLogin = (login) => {

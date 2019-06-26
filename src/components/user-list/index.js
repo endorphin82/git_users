@@ -12,18 +12,18 @@ const FlexColumn = styled.div`
 `;
 
 class UserList extends Component {
-
   componentDidMount() {
     if (!this.props.users.users.length)
-    this.props.onGetUsers();
+      this.props.onGetUsers()
   }
 
   render() {
     console.log(this.props);
     const {users} = this.props.users;
     return (
+
       <FlexColumn>
-        <button onClick={this.piu('klimov-psaul')}>piu</button>
+        <button onClick={this.piu('klimov-paul')}>piu</button>
         {
           users.length
             ?
@@ -33,13 +33,19 @@ class UserList extends Component {
             />)
             : null
         }
+        {
+          users.length
+            ?
+            users.map(user => this.props.onLoadInfoUserByLogin(user.login))
+            : null
+        }
       </FlexColumn>
     );
   }
 
   piu = (s) => () => {
-    this.props.onLoadInfoUserByLogin(s);
     console.log(s);
+    this.props.onLoadInfoUserByLogin(s);
   }
 
 }
@@ -50,8 +56,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onGetUsers: () => dispatch(getUsers()),
-  onLoadInfoUserByLogin: () => dispatch(loadInfoUserByLogin())
-
+  onLoadInfoUserByLogin: login => dispatch(loadInfoUserByLogin(login))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);
