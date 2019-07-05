@@ -1,5 +1,4 @@
 import {
-  FETCH_STARS_BY_LOGIN,
   FETCH_USERS, START, SUCCESS, FAILURE
 } from "../actions/actions-types";
 
