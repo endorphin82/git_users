@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import {getUsers, loadInfoUserByLogin} from "../../actions";
 
 const FlexColumn = styled.div`
-  //width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -15,13 +14,15 @@ class UserList extends Component {
   componentDidMount() {
     if (!this.props.users.users.length)
       this.props.onGetUsers()
+    // if (this.props.users.users.length >=10)
+
   }
 
   render() {
-    console.log(this.props);
+    console.log('UserList this.props',this.props);
     const {users} = this.props.users;
-    return (
 
+    return (
       <FlexColumn>
         <button onClick={this.piu('klimov-paul')}>piu</button>
         {
@@ -36,7 +37,7 @@ class UserList extends Component {
         {
           users.length
             ?
-            users.map(user => this.props.onLoadInfoUserByLogin(user.login))
+            users.map((user, idx) => this.props.onLoadInfoUserByLogin(user.login, idx))
             : null
         }
       </FlexColumn>
@@ -56,7 +57,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onGetUsers: () => dispatch(getUsers()),
-  onLoadInfoUserByLogin: login => dispatch(loadInfoUserByLogin(login))
+  onLoadInfoUserByLogin: (login, idx) => dispatch(loadInfoUserByLogin(login, idx))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);

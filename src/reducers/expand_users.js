@@ -15,7 +15,8 @@ export default function expand_users(state = initialState, action) {
     case LOAD_INFO_USER_BY_LOGIN + SUCCESS:
       return {
         ...state,
-        [action.response.login]: action.response,
+        // expand_users: [...action.response],
+        [action.idx]: action.response,
         loading: true
       }
     case LOAD_INFO_USER_BY_LOGIN + FAILURE:
