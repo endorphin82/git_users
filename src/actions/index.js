@@ -19,7 +19,7 @@ export const getUsers = () => dispatch => {
       type: FETCH_USERS + FAILURE,
       payload: {errors}
     }))
-}
+};
 
 export const loadInfoUserByLogin = (login, idx) => dispatch => {
   dispatch({
@@ -28,4 +28,4 @@ export const loadInfoUserByLogin = (login, idx) => dispatch => {
     payload: login,
     callAPI: `${BASEUSERSAPI}${login}`
   })
-}
+};
