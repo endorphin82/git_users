@@ -4,6 +4,7 @@ import styled from "styled-components";
 import UserCard from "../user-card";
 import {connect} from "react-redux";
 import {getUsers, loadInfoUserByLogin} from "../../actions";
+import ErrorAlert from "../error-alert";
 
 const FlexColumn = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ class UserList extends Component {
       <FlexColumn>
         {
           expand_users.errors
-          ? <h1>expand_users.errors</h1>
+          ? <ErrorAlert errors={expand_users.errors} />
             : null
         }
         {
