@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ErrorAlert = () => {
+const ErrorAlert = (errors) => {
   return (
     <div>
-      ERROR LIMITS
+      {errors}
     </div>
   );
 };

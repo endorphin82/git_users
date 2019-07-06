@@ -7,12 +7,12 @@ export default function expand_users(state = initialState, action) {
     case LOAD_INFO_USER_BY_LOGIN + START:
       return [
         ...state,
-      ]
+      ];
     case LOAD_INFO_USER_BY_LOGIN + SUCCESS:
       return [
         ...state,
         action.response
-      ]
+      ];
     case LOAD_INFO_USER_BY_LOGIN + FAILURE:
       return {
         ...state,
