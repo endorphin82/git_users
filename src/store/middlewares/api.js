@@ -1,9 +1,9 @@
 import axios from "axios";
 
-import { START, SUCCESS, FAILURE } from "../../actions/actions-types";
+import {START, SUCCESS, FAILURE} from "../../actions/actions-types";
 
 export default store => next => action => {
-  const { callAPI, type, ...rest } = action;
+  const {callAPI, type, ...rest} = action;
   if (!callAPI) return next(action);
 
   next({
@@ -11,12 +11,11 @@ export default store => next => action => {
 
   });
 
-  setTimeout(() => {
-    axios.get(callAPI)
-      .then(res => res.data)
-      .then(response => next({ ...rest, type: type + SUCCESS, response }))
-      .catch(error => next({ ...rest, type: type + FAILURE, payload: error }));
-  }, 1000);
+  axios.get(callAPI)
+    .then(res => res.data)
+    .then(response => next({...rest, type: type + SUCCESS, response}))
+    .catch(error => next({...rest, type: type + FAILURE, payload: error}));
+
 
   // setTimeout(() => {
   //   fetch(callAPI)

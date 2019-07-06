@@ -10,12 +10,7 @@ const AppFont = styled.div`
 function App() {
   return (
     <AppFont className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
        <UserList/>
-      </header>
     </AppFont>
   );
 }

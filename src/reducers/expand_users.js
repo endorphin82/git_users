@@ -1,29 +1,22 @@
 import {FAILURE, LOAD_INFO_USER_BY_LOGIN, START, SUCCESS} from "../actions/actions-types";
 
-const initialState = {
-  errors: {},
-  loading: false
-};
+const initialState = [];
 
 export default function expand_users(state = initialState, action) {
   switch (action.type) {
     case LOAD_INFO_USER_BY_LOGIN + START:
-      return {
+      return [
         ...state,
-        loading: false
-      }
+      ]
     case LOAD_INFO_USER_BY_LOGIN + SUCCESS:
-      return {
+      return [
         ...state,
-        // expand_users: [...action.response],
-        [action.idx]: action.response,
-        loading: true
-      }
+        action.response
+      ]
     case LOAD_INFO_USER_BY_LOGIN + FAILURE:
       return {
         ...state,
         errors: action.payload.errors,
-        loading: false
       };
     default:
       return state;
