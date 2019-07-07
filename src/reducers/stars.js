@@ -10,15 +10,13 @@ export default function  stars(state = initialState, action) {
     case FETCH_STARS_BY_LOGIN_REQUEST:
       return{
         ...state,
-        loading: false,
-        errors: 's'
+        loading: false
       }
     case FETCH_STARS_BY_LOGIN_SUCCESS:
       return{
         ...state,
         stars: action.payload.stars,
-        loading: false,
-        errors: 's'
+        loading: false
       }
     default:
       return state;
