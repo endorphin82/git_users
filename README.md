@@ -1,3 +1,3 @@
 # git_users
 
-#` npm i
+#$ npm i
